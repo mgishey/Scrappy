@@ -80,7 +80,9 @@ app.get("/articles", function(req, res) {
   db.Story.find({})
     .then(function(dbStory) {
       // If we were able to successfully find Articles, send them back to the client
+      console.log("after find all: " + dbStory);
       res.json(dbStory);
+      //DO A RES.RENDER HERE
     })
     .catch(function(err) {
       // If an error occurred, send it to the client
@@ -113,7 +115,7 @@ app.post("/articles/:id", function(req, res) {
   console.log("ReqBody " + req.body)
   db.Comment.create(req.body)
     .then(function(dbComment) {
-      // If a Note was created successfully, find one Article with an `_id` equal to `req.params.id`. Update the Article to be associated with the new Note
+      // If a Comment was created successfully, find one Story with an `_id` equal to `req.params.id`. Update the Story to be associated with the new Comment
       // { new: true } tells the query that we want it to return the updated User -- it returns the original by default
       // Since our mongoose query returns a promise, we can chain another `.then` which receives the result of the query
       return db.Story.findOneAndUpdate({ _id: req.params.id }, { comment: dbComment._id }, { new: true });
