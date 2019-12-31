@@ -26,6 +26,11 @@ app.use(express.json());
 // Make public a static folder
 app.use(express.static("public"));
 
+// Set Handlebars.
+var exphbs = require("express-handlebars");
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
 
 // If deployed, use the deployed DB, else use the local srappyNews DB.
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/scrappyNews";
@@ -81,8 +86,9 @@ app.get("/articles", function(req, res) {
     .then(function(dbStory) {
       // If we were able to successfully find Articles, send them back to the client
       console.log("after find all: " + dbStory);
-      res.json(dbStory);
+      //res.json(dbStory);
       //DO A RES.RENDER HERE
+      res.render("index", { story:dbStory });
     })
     .catch(function(err) {
       // If an error occurred, send it to the client

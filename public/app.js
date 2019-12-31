@@ -78,3 +78,7 @@ $.getJSON("/articles", function(data) {
     $("#titleinput").val("");
     $("#bodyinput").val("");
   });
+
+  $("#scrapeButton").on("click", function(){
+    alert("Scrape Me!");
+  });

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <title>Scraping With Mongoose</title>
+    <style>
+        body {
+            background-color: lightsalmon;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        h1 {
+            font-weight: bold;
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        h2 {
+            font-weight: bold;
+        }
+
+        h6 {
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            text-transform: uppercase;
+        }
+
+        
+
+        #wrapper {
+            width: 960px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 5%;
+        }
+
+        #articles {
+            display: inline-block;
+            overflow: auto;
+            width: 60%;
+            height: 700px;
+        }
+
+        a:link {
+            color: black;
+        }
+
+        a:visited {
+            color: grey;
+        }
+
+        #notes {
+            float: right;
+            width: 30%;
+        }
+
+        textarea,
+        input {
+            display: block;
+            width: 100%;
+            background-color: #FCF5C7;
+        }
+
+        input {
+            height: 36px;
+            font-size: 24px;
+        }
+
+        textarea {
+            height: 200px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <button type="button" id="scrapeButton">Scrape Stories</button>
+        <h1>Scrappy Navajo Nation News</h1>
+        <h2><i>See the major headlines affecting the Rez</i></h2>
+
+        {{{ body }}}
+
+        <!--
+      <div id="articles"></div>
+      <div id="comments"></div>
+      -->
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
