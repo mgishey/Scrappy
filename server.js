@@ -1,6 +1,7 @@
 var express = require("express");
 var logger = require("morgan");
 var mongoose = require("mongoose");
+var path = require("path");
 
 // Our scraping tools
 // Axios is a promised-based http library, similar to jQuery's Ajax method
@@ -28,7 +29,10 @@ app.use(express.static("public"));
 
 // Set Handlebars.
 var exphbs = require("express-handlebars");
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.engine("handlebars", exphbs({ 
+  defaultLayout: "main", 
+  partialsDir: path.join(__dirname, "/views/layouts/partials")
+ }));
 app.set("view engine", "handlebars");
 
 
@@ -41,7 +45,25 @@ mongoose.connect(MONGODB_URI);
 
 // Routes
 
-// A GET route for scraping the echoJS website
+// Route for getting all stories from the db
+app.get("/", function(req, res) {
+  // Grab every document in the Stories collection
+  db.Story.find({})
+    .then(function(dbStory) {
+      // If we were able to successfully find Stories, send them back to the client
+      //res.json(dbStory);
+      //DO A RES.RENDER HERE
+      var hbsObject = { stories: dbStory}
+      res.render("index", hbsObject);
+    })
+    .catch(function(err) {
+      // If an error occurred, send it to the client
+      res.json(err);
+    });
+});
+
+
+// A GET route for scraping the Navajo Times website
 app.get("/scrape", function (req, res) {
   // First, we grab the body of the html with axios
   axios.get("https://navajotimes.com/").then(function (response) {
@@ -75,20 +97,21 @@ app.get("/scrape", function (req, res) {
 
     // Send a message to the client
     res.send("Scrape Complete");
+    
   });
 });
 
 
-// Route for getting all Articles from the db
-app.get("/articles", function(req, res) {
+// Route for getting all unsaved stories from the db
+app.get("/", function(req, res) {
   // Grab every document in the Articles collection
   db.Story.find({})
     .then(function(dbStory) {
       // If we were able to successfully find Articles, send them back to the client
-      console.log("after find all: " + dbStory);
       //res.json(dbStory);
       //DO A RES.RENDER HERE
-      res.render("index", { story:dbStory });
+      var hbsObject = { stories: dbStory}
+      res.render("index", hbsObject);
     })
     .catch(function(err) {
       // If an error occurred, send it to the client

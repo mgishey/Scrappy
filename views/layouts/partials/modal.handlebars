@@ -1,0 +1,37 @@
+<div class="modal fade modalComment" id="commentModal{{_id}}" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Comment for {{_id}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+            {{#if comments}}
+                {{#each comments}}
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h4>Previous Note:</h4>
+                            <p class="previousNotes">{{body}}</p>
+                            <button type="button" class="btn btn-dark deleteComment" data-note-id={{_id}}>Delete Comment</button><br>
+                        </div>
+                    </div>
+                {{/each}}
+            {{else}}
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h4>No Comments on this story yet.</h4>
+                    </div>
+                </div>
+            {{/if}}
+            <div class="form-group">
+                <textarea id="commentText{{_id}}" class="form-control" rows="4" placeholder="New Comment"></textarea>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary saveComment" data-id={{_id}}>Save</button>
+      </div>
+    </div>
+  </div>
+</div>

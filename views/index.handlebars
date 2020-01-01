@@ -1,58 +1,31 @@
-<di<div class="container">
+<div class="container">
 
 
     <div class="row">
-        <!-- Articles -->
-        <div class="col-sm-6">
+        <!-- Stories -->
+        <div class="col-sm-12">
             <div class="panel panel-default">
                 <div class="panel-body">
                     <ul>
-                        {{#each story}}                     
+                        {{#each stories}}
                         <h2><a href="{{this.link}}" target="_blank"> {{this.title}} </a></h2>
                         <h6> {{this.date_updated}} </h6>
                         <p> {{this.summary}} </p>
+                        <button type="button" class="addComment" data-toggle="modal" data-target="#commentModal{{this._id}}"
+                            data-id={{this._id}}>Add/View Comment</button>
                         <hr>
                         {{/each}}
                     </ul>
                 </div>
             </div>
         </div>
-
-        <!-- Notes -->
-        <!--
-        <div class="col-sm-6">
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <ul>
-                        {{#each dbstory}}
-                    
-                        <h2> {{this.id}} - {{this.title}} </h2>
-                        <hr>
-                        
-                        {{/each}}
-                    </ul>
-                </div>
-            </div>
-        </div>
-        -->
     </div>
-    
-    <!--
-    <div class="row">
-        <div class="col-sm-12 d-flex content-center">
-            <div class="center-div">
-                <h4>Add a Burger</h4>
-                <form>
-                    <div class="form-group">
-                        <textarea class="form-control" id="newBurger" rows="3"></textarea>
-                    </div> 
-                </form>
-                <button class="btn btn-success" type="submit" id="submit">Submit</button>
-            </div>
-        </div>
+
+    {{! Modal for Comments}}
+    <div>
+        {{#each stories}}
+        {{>modal}}
+        {{/each}}
     </div>
-    -->
-
-
 
 </div>
