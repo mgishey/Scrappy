@@ -9,15 +9,15 @@
       </div>
       <div class="modal-body">
             {{#if comments}}
-                {{#each comments}}
+              {{#each comments}}
                     <div class="panel panel-default">
                         <div class="panel-body">
-                            <h4>Previous Note:</h4>
-                            <p class="previousNotes">{{body}}</p>
-                            <button type="button" class="btn btn-dark deleteComment" data-note-id={{_id}}>Delete Comment</button><br>
+                            <h4>Previous Comment: </h4>
+                            <p class="previousComments">{{body}}</p>
+                            <button type="button" class="btn btn-dark deleteComment" data-comment-id={{_id}}>Delete Comment</button><br>
                         </div>
                     </div>
-                {{/each}}
+              {{/each}}
             {{else}}
                 <div class="panel panel-default">
                     <div class="panel-body">

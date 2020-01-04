@@ -1,0 +1,86 @@
+body {
+    background-color: lightsalmon;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.jumbotron {
+    background-image: url("https://cdn.pixabay.com/photo/2015/12/08/00/45/monument-valley-1081996__340.jpg");
+    background-size: cover;
+    height: 25rem;
+}
+
+h1 {
+    color: teal;
+    font-weight: bold;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-shadow: 2px 1px black;
+}
+
+h2 {
+    color: teal;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    text-shadow: 1px 1px black;
+}
+
+h6 {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    text-transform: uppercase;
+}
+
+#wrapper {
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 5%;
+}
+
+#articles {
+    display: inline-block;
+    overflow: auto;
+    width: 60%;
+    height: 700px;
+}
+
+a:link {
+    color: black;
+}
+
+a:visited {
+    color: grey;
+}
+
+#notes {
+    float: right;
+    width: 30%;
+}
+
+textarea,
+input {
+    display: block;
+    width: 100%;
+    background-color: #FCF5C7;
+}
+
+input {
+    height: 36px;
+    font-size: 24px;
+}
+
+textarea {
+    height: 200px;
+    font-size: 18px;
+}
+
+button {
+    background-color: teal !important;
+}
+
+.save {
+    margin-top: 5px;
+}
+
+.delete {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

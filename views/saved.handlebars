@@ -6,9 +6,8 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="/saved">Saved Articles</a>
-      <button type="button" class="btn btn-primary" id="scrapeButton">Scrape More Rez Stories</button>
+      <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="/saved">Saved Stories</a>
       {{!-- <a class="nav-item nav-link" href="/clearall">Clear Articles</a> --}}
     </div>
   </div>
@@ -17,14 +16,19 @@
 {{! Main Header Image }}
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-4 text-center">Scrappy Navajo Nation News</h1>
-    <h2 class="lead text-center">Review the latest Stories from the Rez</h2>
+    <h1 class="display-4 text-center">Saved Stories</h1>
+    <h2 class="lead text-center">Review and add notes to your saved Stories from Scrappy News.</h2>
   </div>
 </div>
 
 {{! Articles }}
 <div id="stories">
     {{#each stories}}
-        {{> story }}
+        {{> saved-stories }}
     {{/each}}
 </div>
+
+{{! Modal for Notes }}
+{{#each stories}}
+    {{> modal }}
+{{/each}}
